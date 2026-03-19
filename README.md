@@ -17,9 +17,9 @@ The car perceives the track through a **line-scan camera**, computes a **virtual
 
 | Component | Details |
 |---|---|
-| **MCU** | NXP FRDM series (MCUXpresso SDK) |
-| **Camera** | Line-scan (TSL1401 or compatible) via GPIO/ADC |
-| **Actuators** | Servo (steering) + DC motor / ESC (drive) |
+| **MCU** | NXP FRDM series FRDM-MCXN947 |
+| **Camera** | Line-scan (Pixy2.1) via GPIO/ADC |
+| **Actuators** | Servo + 2 x DC Motors + Drivers |
 | **Debugger** | LinkServer (MCUXpresso IDE) |
 | **Power** | LiPo battery |
 
