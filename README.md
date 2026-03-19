@@ -1,4 +1,4 @@
-# 🏎️ self-driving-car-control
+# Autonomous car control
 
 > **Bare-metal embedded C firmware for an autonomous race car — NXP Cup competition.**  
 > Virtual-point lane detection · PID steering control · Real-time camera processing on NXP MCU.
