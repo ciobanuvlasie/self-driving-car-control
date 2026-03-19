@@ -1,0 +1,12 @@
+../source/pixy.c:27:13:pixy_edma_cb	24	static
+../source/pixy.c:38:17:pixy_wait_done	16	static
+../source/pixy.c:48:6:pixy_init	32	static
+../source/pixy.c:66:17:pixy_send	56	static
+../source/pixy.c:87:17:pixy_recv	56	static
+../source/pixy.c:109:17:pixy_send_req	64	static
+../source/pixy.c:129:17:pixy_read_packet	88	static
+../source/pixy.c:195:10:pixy_set_led	56	static
+../source/pixy.c:208:10:pixy_set_lamp	56	static
+../source/pixy.c:220:10:pixy_get_version	96	static
+../source/pixy.c:257:10:pixy_get_vectors	192	static
+../source/pixy.c:321:10:pixy_get_vectors_u16	136	static

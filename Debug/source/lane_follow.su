@@ -1,0 +1,4 @@
+../source/lane_follow.c:3:23:i16_abs	16	static
+../source/lane_follow.c:6:20:vec_near_point	24	static
+../source/lane_follow.c:13:16:score_vector	48	static
+../source/lane_follow.c:39:13:lane_measure_center	88	static

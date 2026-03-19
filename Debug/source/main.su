@@ -1,0 +1,14 @@
+../source/main.c:19:12:limiteaza	24	static
+../source/main.c:26:16:punct_jos_x	16	static
+../source/main.c:34:16:punct_jos_y	16	static
+../source/main.c:42:12:lungime_vector	24	static
+../source/main.c:49:12:este_in_imagine	16	static
+../source/main.c:56:12:este_destul_de_lung	16	static
+../source/main.c:61:12:este_destul_de_jos	16	static
+../source/main.c:66:12:vector_valid	16	static
+../source/main.c:74:12:vector_stanga	24	static
+../source/main.c:85:12:vector_dreapta	24	static
+../source/main.c:96:12:selectstanga	48	static
+../source/main.c:139:12:selectdreapta	48	static
+../source/main.c:182:12:calculeaza_x_la_y	48	static
+../source/main.c:213:5:main	360	static

@@ -1,0 +1,5 @@
+../source/ina231.c:9:17:i2c_wr	48	static
+../source/ina231.c:17:17:i2c_wrrd	56	static
+../source/ina231.c:28:10:INA231_Init	32	static
+../source/ina231.c:42:10:INA231_ReadBusVoltage_V	32	static
+../source/ina231.c:53:10:INA231_ReadCurrent_A	40	static

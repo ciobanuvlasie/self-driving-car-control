@@ -1,0 +1,8 @@
+../source/ina.c:11:17:ina_write_reg	48	static
+../source/ina.c:25:17:ina_read_reg	56	static
+../source/ina.c:45:17:ina226_calc_cal	48	static
+../source/ina.c:70:10:ina_init_ina226	32	static
+../source/ina.c:87:10:ina_read_vbus_mV	24	static
+../source/ina.c:98:10:ina_read_current_mA	32	static
+../source/ina.c:110:10:ina_read_vshunt_uV	24	static
+../source/ina.c:121:5:ina_ping	48	static

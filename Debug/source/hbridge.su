@@ -1,0 +1,4 @@
+C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_gpio.h:345:20:GPIO_PinWrite	24	static
+../source/hbridge.c:9:6:HbridgeInit	40	static
+../source/hbridge.c:25:6:HbridgeSpeed	24	static
+../source/hbridge.c:58:6:HbridgeBrake	16	static

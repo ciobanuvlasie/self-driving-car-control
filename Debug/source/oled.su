@@ -1,0 +1,9 @@
+../source/oled.c:15:17:oled_i2c_write	48	static
+../source/oled.c:25:13:oled_cmd	24	static
+../source/oled.c:31:13:oled_cmd_list	48	static
+../source/oled.c:86:23:font_get	16	static
+../source/oled.c:98:13:setpx	32	static
+../source/oled.c:106:6:oled_clear	8	static
+../source/oled.c:108:6:oled_print	40	static
+../source/oled.c:119:6:oled_update	40	static
+../source/oled.c:131:6:oled_init	48	static

@@ -1,0 +1,4 @@
+C:\Users\Vlasie\Desktop\nxp\nxpcup\utilities\debug_console_lite/fsl_debug_console.h:194:24:DbgConsole_Error	4	static
+../board/board.c:28:6:BOARD_InitDebugConsole	16	static
+../board/board.c:44:6:BOARD_InitDebugConsole_Core1	16	static
+../board/board.c:232:6:BOARD_PowerMode_OD	16	static
