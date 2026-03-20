@@ -104,7 +104,8 @@ board/peripherals.o board/peripherals.d: ../board/peripherals.c \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpflexcomm.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h \
- C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h
+ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h \
+ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h
 C:\Users\Vlasie\Desktop\nxp\nxpcup\source\mcux_config.h:
 ../board/peripherals.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h:
@@ -211,3 +212,4 @@ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpflexcomm.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h:
+C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h:

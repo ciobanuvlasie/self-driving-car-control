@@ -105,6 +105,7 @@ source/servo.o source/servo.d: ../source/servo.c \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h \
+ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\utilities\debug_console_lite/fsl_debug_console.h
 C:\Users\Vlasie\Desktop\nxp\nxpcup\source\mcux_config.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_ctimer.h:
@@ -212,4 +213,5 @@ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpflexcomm.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h:
+C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\utilities\debug_console_lite/fsl_debug_console.h:

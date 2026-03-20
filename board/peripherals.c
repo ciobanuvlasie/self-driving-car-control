@@ -80,7 +80,6 @@ instance:
       - 0: []
       - 1: []
     - edma_channels: []
-    - quick_selection: 'default'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 edma_config_t DMA0_config = {
@@ -120,7 +119,7 @@ instance:
       - 0:
         - channelId: 'int_0'
         - interrupt_t:
-          - IRQn: 'LP_FLEXCOMM2_IRQn'
+          - IRQn: 'LP_FLEXCOMM3_IRQn'
           - enable_interrrupt: 'enabled'
           - enable_priority: 'true'
           - priority: '3'
@@ -311,18 +310,18 @@ static void CTIMER2_init(void) {
 }
 
 /***********************************************************************************************************************
- * LP_FLEXCOMM2 initialization code
+ * LP_FLEXCOMM3 initialization code
  **********************************************************************************************************************/
 /* clang-format off */
 /* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
 instance:
-- name: 'LP_FLEXCOMM2'
+- name: 'LP_FLEXCOMM3'
 - type: 'lpflexcomm_lpi2c'
 - mode: 'edma_transfer'
 - custom_name_enabled: 'false'
 - type_id: 'lpflexcomm_lpi2c_2.1.1'
 - functional_group: 'BOARD_InitPeripherals'
-- peripheral: 'LP_FLEXCOMM2'
+- peripheral: 'LP_FLEXCOMM3'
 - config_sets:
   - transferEDMACfg:
     - master_transfer:
@@ -344,7 +343,7 @@ instance:
     - channel_rx:
       - uid: '1753969670330'
       - eDMAn: '0'
-      - eDMA_source: 'kDma0RequestMuxLpFlexcomm2Rx'
+      - eDMA_source: 'kDma0RequestMuxLpFlexcomm3Rx'
       - init_channel_priority: 'false'
       - edma_channel_Preemption:
         - enableChannelPreemption: 'false'
@@ -358,7 +357,7 @@ instance:
     - channel_tx:
       - uid: '1753969670331'
       - eDMAn: '1'
-      - eDMA_source: 'kDma0RequestMuxLpFlexcomm2Tx'
+      - eDMA_source: 'kDma0RequestMuxLpFlexcomm3Tx'
       - init_channel_priority: 'false'
       - edma_channel_Preemption:
         - enableChannelPreemption: 'false'
@@ -392,7 +391,7 @@ instance:
     - quick_selection: 'qs_default'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
-const lpi2c_master_config_t LP_FLEXCOMM2_masterConfig = {
+const lpi2c_master_config_t LP_FLEXCOMM3_masterConfig = {
   .enableMaster = true,
   .enableDoze = true,
   .debugEnable = false,
@@ -409,33 +408,33 @@ const lpi2c_master_config_t LP_FLEXCOMM2_masterConfig = {
     .polarity = kLPI2C_HostRequestPinActiveHigh
   }
 };
-edma_handle_t LP_FLEXCOMM2_RX_Handle;
-edma_handle_t LP_FLEXCOMM2_TX_Handle;
-lpi2c_master_edma_handle_t LP_FLEXCOMM2_master_handle;
-uint8_t LP_FLEXCOMM2_master_buffer[LP_FLEXCOMM2_MASTER_BUFFER_SIZE];
-lpi2c_master_transfer_t LP_FLEXCOMM2_masterTransfer = {
+edma_handle_t LP_FLEXCOMM3_RX_Handle;
+edma_handle_t LP_FLEXCOMM3_TX_Handle;
+lpi2c_master_edma_handle_t LP_FLEXCOMM3_master_handle;
+uint8_t LP_FLEXCOMM3_master_buffer[LP_FLEXCOMM3_MASTER_BUFFER_SIZE];
+lpi2c_master_transfer_t LP_FLEXCOMM3_masterTransfer = {
   .flags = kLPI2C_TransferDefaultFlag,
   .slaveAddress = 0U,
   .direction = kLPI2C_Write,
   .subaddress = 0UL,
   .subaddressSize = 1U,
-  .data = LP_FLEXCOMM2_master_buffer,
-  .dataSize = LP_FLEXCOMM2_MASTER_BUFFER_SIZE
+  .data = LP_FLEXCOMM3_master_buffer,
+  .dataSize = LP_FLEXCOMM3_MASTER_BUFFER_SIZE
 };
 
-static void LP_FLEXCOMM2_init(void) {
-  /* LP_FLEXCOMM2 LPI2C leader initialization */
-  LPI2C_MasterInit(LP_FLEXCOMM2_PERIPHERAL, &LP_FLEXCOMM2_masterConfig, LP_FLEXCOMM2_CLOCK_SOURCE);
-  /* Set the kDma0RequestMuxLpFlexcomm2Rx request */
-  EDMA_SetChannelMux(LP_FLEXCOMM2_RX_DMA_BASEADDR, LP_FLEXCOMM2_RX_DMA_CHANNEL, LP_FLEXCOMM2_RX_DMA_REQUEST);
-  /* Set the kDma0RequestMuxLpFlexcomm2Tx request */
-  EDMA_SetChannelMux(LP_FLEXCOMM2_TX_DMA_BASEADDR, LP_FLEXCOMM2_TX_DMA_CHANNEL, LP_FLEXCOMM2_TX_DMA_REQUEST);
-  /* Create the eDMA LP_FLEXCOMM2_RX_Handle handle */
-  EDMA_CreateHandle(&LP_FLEXCOMM2_RX_Handle, LP_FLEXCOMM2_RX_DMA_BASEADDR, LP_FLEXCOMM2_RX_DMA_CHANNEL);
-  /* Create the eDMA LP_FLEXCOMM2_TX_Handle handle */
-  EDMA_CreateHandle(&LP_FLEXCOMM2_TX_Handle, LP_FLEXCOMM2_TX_DMA_BASEADDR, LP_FLEXCOMM2_TX_DMA_CHANNEL);
+static void LP_FLEXCOMM3_init(void) {
+  /* LP_FLEXCOMM3 LPI2C leader initialization */
+  LPI2C_MasterInit(LP_FLEXCOMM3_PERIPHERAL, &LP_FLEXCOMM3_masterConfig, LP_FLEXCOMM3_CLOCK_SOURCE);
+  /* Set the kDma0RequestMuxLpFlexcomm3Rx request */
+  EDMA_SetChannelMux(LP_FLEXCOMM3_RX_DMA_BASEADDR, LP_FLEXCOMM3_RX_DMA_CHANNEL, LP_FLEXCOMM3_RX_DMA_REQUEST);
+  /* Set the kDma0RequestMuxLpFlexcomm3Tx request */
+  EDMA_SetChannelMux(LP_FLEXCOMM3_TX_DMA_BASEADDR, LP_FLEXCOMM3_TX_DMA_CHANNEL, LP_FLEXCOMM3_TX_DMA_REQUEST);
+  /* Create the eDMA LP_FLEXCOMM3_RX_Handle handle */
+  EDMA_CreateHandle(&LP_FLEXCOMM3_RX_Handle, LP_FLEXCOMM3_RX_DMA_BASEADDR, LP_FLEXCOMM3_RX_DMA_CHANNEL);
+  /* Create the eDMA LP_FLEXCOMM3_TX_Handle handle */
+  EDMA_CreateHandle(&LP_FLEXCOMM3_TX_Handle, LP_FLEXCOMM3_TX_DMA_BASEADDR, LP_FLEXCOMM3_TX_DMA_CHANNEL);
   /* Create eDMA leader transfer handle */
-  LPI2C_MasterCreateEDMAHandle(LP_FLEXCOMM2_PERIPHERAL, &LP_FLEXCOMM2_master_handle, &LP_FLEXCOMM2_RX_Handle, &LP_FLEXCOMM2_TX_Handle, NULL, NULL);
+  LPI2C_MasterCreateEDMAHandle(LP_FLEXCOMM3_PERIPHERAL, &LP_FLEXCOMM3_master_handle, &LP_FLEXCOMM3_RX_Handle, &LP_FLEXCOMM3_TX_Handle, NULL, NULL);
 
 }
 
@@ -485,11 +484,120 @@ static void CTIMER4_init(void) {
 }
 
 /***********************************************************************************************************************
+ * LP_FLEXCOMM5 initialization code
+ **********************************************************************************************************************/
+/* clang-format off */
+/* TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
+instance:
+- name: 'LP_FLEXCOMM5'
+- type: 'lpflexcomm_lpuart'
+- mode: 'polling'
+- custom_name_enabled: 'false'
+- type_id: 'lpflexcomm_lpuart_2.3.0'
+- functional_group: 'BOARD_InitPeripherals'
+- peripheral: 'LP_FLEXCOMM5'
+- config_sets:
+  - fsl_lpuart:
+    - lpuartConfig:
+      - timingConfig:
+        - clockSource: 'LPFLEXCOMMFunctionClock'
+        - lpuartSrcClkFreq: 'ClocksTool_DefaultInit'
+        - baudRateBpsStr: '115200'
+      - parityMode: 'kLPUART_ParityDisabled'
+      - dataBitsCount: 'kLPUART_EightDataBits'
+      - isMsb: 'false'
+      - stopBitCount: 'kLPUART_OneStopBit'
+      - enableMatchAddress1: 'false'
+      - matchAddress1: '0'
+      - enableMatchAddress2: 'false'
+      - matchAddress2: '0'
+      - txFifoWatermark: '0'
+      - rxFifoWatermark: '1'
+      - enableRxRTS: 'false'
+      - rtsDelayValue: '1'
+      - enableTxCTS: 'false'
+      - txCtsSource: 'kLPUART_CtsSourcePin'
+      - txCtsConfig: 'kLPUART_CtsSampleAtStart'
+      - rxIdleType: 'kLPUART_IdleTypeStartBit'
+      - rxIdleConfig: 'kLPUART_IdleCharacter1'
+      - enableSingleWire: 'false'
+      - enableTx: 'true'
+      - enableRx: 'true'
+      - timeoutConfig:
+        - rxExtendedTimeoutValue: '0'
+        - txExtendedTimeoutValue: '0'
+        - rxCounter0:
+          - enableCounter: 'false'
+          - timeoutCondition: 'kLPUART_TimeoutAfterCharacters'
+          - timeoutValue: '0'
+        - rxCounter1:
+          - enableCounter: 'false'
+          - timeoutCondition: 'kLPUART_TimeoutAfterCharacters'
+          - timeoutValue: '0'
+        - txCounter0:
+          - enableCounter: 'false'
+          - timeoutCondition: 'kLPUART_TimeoutAfterCharacters'
+          - timeoutValue: '0'
+        - txCounter1:
+          - enableCounter: 'false'
+          - timeoutCondition: 'kLPUART_TimeoutAfterCharacters'
+          - timeoutValue: '0'
+ * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
+/* clang-format on */
+const lpuart_config_t LP_FLEXCOMM5_config = {
+  .baudRate_Bps = 115200UL,
+  .parityMode = kLPUART_ParityDisabled,
+  .dataBitsCount = kLPUART_EightDataBits,
+  .isMsb = false,
+  .stopBitCount = kLPUART_OneStopBit,
+  .txFifoWatermark = 0U,
+  .rxFifoWatermark = 1U,
+  .enableRxRTS = false,
+  .enableTxCTS = false,
+  .txCtsSource = kLPUART_CtsSourcePin,
+  .txCtsConfig = kLPUART_CtsSampleAtStart,
+  .rxIdleType = kLPUART_IdleTypeStartBit,
+  .rxIdleConfig = kLPUART_IdleCharacter1,
+  .enableSingleWire = false,
+  .rtsDelay = 0,
+  .enableTx = true,
+  .enableRx = true,
+  .timeoutConfig = {
+    .rxExtendedTimeoutValue = 0U,
+    .txExtendedTimeoutValue = 0U,
+    .rxCounter0 = {
+      .enableCounter = false,
+      .timeoutCondition = kLPUART_TimeoutAfterCharacters,
+      .timeoutValue = 0U
+    },
+    .rxCounter1 = {
+      .enableCounter = false,
+      .timeoutCondition = kLPUART_TimeoutAfterCharacters,
+      .timeoutValue = 0U
+    },
+    .txCounter0 = {
+      .enableCounter = false,
+      .timeoutCondition = kLPUART_TimeoutAfterCharacters,
+      .timeoutValue = 0U
+    },
+    .txCounter1 = {
+      .enableCounter = false,
+      .timeoutCondition = kLPUART_TimeoutAfterCharacters,
+      .timeoutValue = 0U
+    }
+  }
+};
+
+static void LP_FLEXCOMM5_init(void) {
+  LPUART_Init(LP_FLEXCOMM5_PERIPHERAL, &LP_FLEXCOMM5_config, LP_FLEXCOMM5_CLOCK_SOURCE);
+}
+
+/***********************************************************************************************************************
  * Initialization functions
  **********************************************************************************************************************/
 static void BOARD_InitPeripherals_CommonPostInit(void)
 {
-  /* Interrupt vector LP_FLEXCOMM2_IRQn priority settings in the NVIC. */
+  /* Interrupt vector LP_FLEXCOMM3_IRQn priority settings in the NVIC. */
   NVIC_SetPriority(INT_0_IRQN, INT_0_IRQ_PRIORITY);
   /* Interrupt vector EDMA_0_CH0_IRQn priority settings in the NVIC. */
   NVIC_SetPriority(INT_1_IRQN, INT_1_IRQ_PRIORITY);
@@ -513,8 +621,9 @@ void BOARD_InitPeripherals(void)
   CTIMER0_init();
   GPIO0_init();
   CTIMER2_init();
-  LP_FLEXCOMM2_init();
+  LP_FLEXCOMM3_init();
   CTIMER4_init();
+  LP_FLEXCOMM5_init();
   /* Common post-initialization */
   BOARD_InitPeripherals_CommonPostInit();
 }

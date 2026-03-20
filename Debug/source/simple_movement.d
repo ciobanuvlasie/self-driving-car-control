@@ -111,6 +111,7 @@ source/simple_movement.o source/simple_movement.d: \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h \
+ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\board/pin_mux.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\include/hbridge.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\include/pixy.h \
@@ -228,6 +229,7 @@ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpflexcomm.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c_edma.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpi2c.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_edma.h:
+C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_lpuart.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\board/pin_mux.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\include/hbridge.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\include/pixy.h:

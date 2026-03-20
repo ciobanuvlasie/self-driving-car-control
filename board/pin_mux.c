@@ -51,11 +51,15 @@ BOARD_InitPins:
   - {pin_num: F10, peripheral: CTIMER0, signal: 'MATCH, 2', pin_signal: PIO0_26/FC1_P2/CT0_MAT2/ADC0_B18}
   - {pin_num: B6, peripheral: GPIO0, signal: 'GPIO, 24', pin_signal: PIO0_24/FC1_P0/CT0_MAT0/ADC0_B16, direction: OUTPUT}
   - {pin_num: E10, peripheral: GPIO0, signal: 'GPIO, 27', pin_signal: PIO0_27/FC1_P3/CT0_MAT3/ADC0_B19, direction: OUTPUT}
-  - {pin_num: A10, peripheral: LP_FLEXCOMM0, signal: LPFLEXCOMM_P1, pin_signal: PIO0_17/FC0_P1/CT0_MAT1/UTICK_CAP3/FLEXIO0_D1/PDM0_DATA0/I3C0_SCL/TSI0_CH12/ADC0_A9}
-  - {pin_num: B10, peripheral: LP_FLEXCOMM0, signal: LPFLEXCOMM_P0, pin_signal: PIO0_16/WUU0_IN2/FC0_P0/CT0_MAT0/UTICK_CAP2/FLEXIO0_D0/PDM0_CLK/I3C0_SDA/TSI0_CH11/ADC0_A8}
   - {pin_num: P2, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P1, pin_signal: PIO4_1/TRIG_IN7/FC2_P1/CT_INP17/SMARTDMA_PIO25/PLU_IN1}
   - {pin_num: P1, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P0, pin_signal: PIO4_0/WUU0_IN18/TRIG_IN6/FC2_P0/CT_INP16/SMARTDMA_PIO24/PLU_IN0/SINC0_MCLK3}
   - {pin_num: D2, peripheral: CTIMER2, signal: 'MATCH, 2', pin_signal: PIO1_12/WUU0_IN12/TRACE_CLK/FC4_P4/FC3_P0/CT2_MAT2/SCT0_OUT4/FLEXIO0_D20/SMARTDMA_PIO8/PLU_OUT2/ENET0_RXER/CAN1_RXD/TSI0_CH21/ADC1_A12}
+  - {pin_num: T1, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P2, pin_signal: PIO4_2/TRIG_IN6/FC2_P2/CT_INP12/SMARTDMA_PIO26/PLU_IN2/SINC0_MBIT3/DAC0_OUT/ADC0_A4/ADC1_A4/CMP0_IN4N/CMP1_IN4N/CMP2_IN4N}
+  - {pin_num: U1, peripheral: LP_FLEXCOMM2, signal: LPFLEXCOMM_P3, pin_signal: PIO4_3/WUU0_IN19/TRIG_IN7/FC2_P3/CT_INP13/SMARTDMA_PIO27/PLU_IN3/DAC1_OUT/ADC0_B4/ADC1_B4/CMP0_IN5N/CMP1_IN5N/CMP2_IN5N}
+  - {pin_num: C5, peripheral: LP_FLEXCOMM3, signal: LPFLEXCOMM_P1, pin_signal: PIO1_1/TRIG_IN1/FC3_P1/FC4_P5/CT_INP5/SCT0_OUT7/FLEXIO0_D9/SAI1_TX_FS/TSI0_CH1/ADC0_A17/CMP1_IN0}
+  - {pin_num: C6, peripheral: LP_FLEXCOMM3, signal: LPFLEXCOMM_P0, pin_signal: PIO1_0/WUU0_IN6/LPTMR0_ALT3/TRIG_IN0/FC3_P0/FC4_P4/CT_INP4/SCT0_OUT6/FLEXIO0_D8/SAI1_TX_BCLK/TSI0_CH0/ADC0_A16/CMP0_IN0}
+  - {pin_num: F6, peripheral: LP_FLEXCOMM5, signal: LPFLEXCOMM_P0, pin_signal: PIO1_16/WUU0_IN14/FC5_P0/FC3_P4/CT_INP12/SCT0_OUT6/FLEXIO0_D24/SMARTDMA_PIO12/PLU_OUT4/ENET0_RXD2/I3C1_SDA/ADC1_A16}
+  - {pin_num: F4, peripheral: LP_FLEXCOMM5, signal: LPFLEXCOMM_P1, pin_signal: PIO1_17/FC5_P1/FC3_P5/CT_INP13/SCT0_OUT7/FLEXIO0_D25/SMARTDMA_PIO13/PLU_OUT5/ENET0_RXD3/I3C1_SCL/ADC1_A17}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -90,26 +94,6 @@ void BOARD_InitPins(void)
     };
     /* Initialize GPIO functionality on pin PIO0_27 (pin E10)  */
     GPIO_PinInit(BOARD_INITPINS_LED_GREEN_GPIO, BOARD_INITPINS_LED_GREEN_PIN, &LED_GREEN_config);
-
-    /* PORT0_16 (pin B10) is configured as FC0_P0 */
-    PORT_SetPinMux(PORT0, 16U, kPORT_MuxAlt2);
-
-    PORT0->PCR[16] = ((PORT0->PCR[16] &
-                       /* Mask bits to zero which are setting */
-                       (~(PORT_PCR_IBE_MASK)))
-
-                      /* Input Buffer Enable: Enables. */
-                      | PORT_PCR_IBE(PCR_IBE_ibe1));
-
-    /* PORT0_17 (pin A10) is configured as FC0_P1 */
-    PORT_SetPinMux(PORT0, 17U, kPORT_MuxAlt2);
-
-    PORT0->PCR[17] = ((PORT0->PCR[17] &
-                       /* Mask bits to zero which are setting */
-                       (~(PORT_PCR_IBE_MASK)))
-
-                      /* Input Buffer Enable: Enables. */
-                      | PORT_PCR_IBE(PCR_IBE_ibe1));
 
     const port_pin_config_t DEBUG_SWD_SWO = {/* Internal pull-up/down resistor is disabled */
                                              .pullSelect = kPORT_PullDisable,
@@ -174,10 +158,50 @@ void BOARD_InitPins(void)
                       /* Input Buffer Enable: Enables. */
                       | PORT_PCR_IBE(PCR_IBE_ibe1));
 
+    /* PORT1_0 (pin C6) is configured as FC3_P0 */
+    PORT_SetPinMux(PORT1, 0U, kPORT_MuxAlt2);
+
+    PORT1->PCR[0] = ((PORT1->PCR[0] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_IBE_MASK)))
+
+                     /* Input Buffer Enable: Enables. */
+                     | PORT_PCR_IBE(PCR_IBE_ibe1));
+
+    /* PORT1_1 (pin C5) is configured as FC3_P1 */
+    PORT_SetPinMux(PORT1, 1U, kPORT_MuxAlt2);
+
+    PORT1->PCR[1] = ((PORT1->PCR[1] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_IBE_MASK)))
+
+                     /* Input Buffer Enable: Enables. */
+                     | PORT_PCR_IBE(PCR_IBE_ibe1));
+
     /* PORT1_12 (pin D2) is configured as CT2_MAT2 */
     PORT_SetPinMux(PORT1, 12U, kPORT_MuxAlt4);
 
     PORT1->PCR[12] = ((PORT1->PCR[12] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_IBE_MASK)))
+
+                      /* Input Buffer Enable: Enables. */
+                      | PORT_PCR_IBE(PCR_IBE_ibe1));
+
+    /* PORT1_16 (pin F6) is configured as FC5_P0 */
+    PORT_SetPinMux(PORT1, 16U, kPORT_MuxAlt2);
+
+    PORT1->PCR[16] = ((PORT1->PCR[16] &
+                       /* Mask bits to zero which are setting */
+                       (~(PORT_PCR_IBE_MASK)))
+
+                      /* Input Buffer Enable: Enables. */
+                      | PORT_PCR_IBE(PCR_IBE_ibe1));
+
+    /* PORT1_17 (pin F4) is configured as FC5_P1 */
+    PORT_SetPinMux(PORT1, 17U, kPORT_MuxAlt2);
+
+    PORT1->PCR[17] = ((PORT1->PCR[17] &
                        /* Mask bits to zero which are setting */
                        (~(PORT_PCR_IBE_MASK)))
 
@@ -198,6 +222,26 @@ void BOARD_InitPins(void)
     PORT_SetPinMux(PORT4, 1U, kPORT_MuxAlt2);
 
     PORT4->PCR[1] = ((PORT4->PCR[1] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_IBE_MASK)))
+
+                     /* Input Buffer Enable: Enables. */
+                     | PORT_PCR_IBE(PCR_IBE_ibe1));
+
+    /* PORT4_2 (pin T1) is configured as FC2_P2 */
+    PORT_SetPinMux(PORT4, 2U, kPORT_MuxAlt2);
+
+    PORT4->PCR[2] = ((PORT4->PCR[2] &
+                      /* Mask bits to zero which are setting */
+                      (~(PORT_PCR_IBE_MASK)))
+
+                     /* Input Buffer Enable: Enables. */
+                     | PORT_PCR_IBE(PCR_IBE_ibe1));
+
+    /* PORT4_3 (pin U1) is configured as FC2_P3 */
+    PORT_SetPinMux(PORT4, 3U, kPORT_MuxAlt2);
+
+    PORT4->PCR[3] = ((PORT4->PCR[3] &
                       /* Mask bits to zero which are setting */
                       (~(PORT_PCR_IBE_MASK)))
 

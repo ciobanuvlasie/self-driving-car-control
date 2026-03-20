@@ -279,8 +279,11 @@ outputs:
 - {id: CTIMER3_clock.outFreq, value: 150 MHz}
 - {id: CTIMER4_clock.outFreq, value: 150 MHz}
 - {id: FLEXCOMM0_clock.outFreq, value: 12 MHz}
+- {id: FLEXCOMM1_clock.outFreq, value: 12 MHz}
 - {id: FLEXCOMM2_clock.outFreq, value: 12 MHz}
+- {id: FLEXCOMM3_clock.outFreq, value: 12 MHz}
 - {id: FLEXCOMM4_clock.outFreq, value: 12 MHz}
+- {id: FLEXCOMM5_clock.outFreq, value: 12 MHz}
 - {id: FRO_12M_clock.outFreq, value: 12 MHz}
 - {id: FRO_HF_clock.outFreq, value: 48 MHz}
 - {id: MAIN_clock.outFreq, value: 150 MHz}
@@ -299,8 +302,11 @@ settings:
 - {id: CTIMER3CLKDIV_HALT, value: Enable}
 - {id: CTIMER4CLKDIV_HALT, value: Enable}
 - {id: FLEXCOMM0CLKDIV_HALT, value: Enable}
+- {id: FLEXCOMM1CLKDIV_HALT, value: Enable}
 - {id: FLEXCOMM2CLKDIV_HALT, value: Enable}
+- {id: FLEXCOMM3CLKDIV_HALT, value: Enable}
 - {id: FLEXCOMM4CLKDIV_HALT, value: Enable}
+- {id: FLEXCOMM5CLKDIV_HALT, value: Enable}
 - {id: SCG.PLL0M_MULT.scale, value: '50', locked: true}
 - {id: SCG.PLL0SRCSEL.sel, value: SCG.FIRC_48M}
 - {id: SCG.PLL0_NDIV.scale, value: '8', locked: true}
@@ -311,8 +317,11 @@ settings:
 - {id: SYSCON.CTIMERCLKSEL3.sel, value: SCG.PLL0_CLK}
 - {id: SYSCON.CTIMERCLKSEL4.sel, value: SCG.PLL0_CLK}
 - {id: SYSCON.FCCLKSEL0.sel, value: SCG.FRO_12M}
+- {id: SYSCON.FCCLKSEL1.sel, value: SCG.FRO_12M}
 - {id: SYSCON.FCCLKSEL2.sel, value: SCG.FRO_12M}
+- {id: SYSCON.FCCLKSEL3.sel, value: SCG.FRO_12M}
 - {id: SYSCON.FCCLKSEL4.sel, value: SCG.FRO_12M}
+- {id: SYSCON.FCCLKSEL5.sel, value: SCG.FRO_12M}
 - {id: SYSCON.FLEXSPICLKSEL.sel, value: NO_CLOCK}
 - {id: SYSCON.FREQMEREFCLKSEL.sel, value: SYSCON.evtg_out0a}
 - {id: SYSCON.FREQMETARGETCLKSEL.sel, value: SYSCON.evtg_out0a}
@@ -374,8 +383,11 @@ void BOARD_BootClockPLL150M(void)
     CLOCK_AttachClk(kPLL0_to_CTIMER3);                 /*!< Switch CTIMER3 to PLL0 */
     CLOCK_AttachClk(kPLL0_to_CTIMER4);                 /*!< Switch CTIMER4 to PLL0 */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM0);                 /*!< Switch FLEXCOMM0 to FRO12M */
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM1);                 /*!< Switch FLEXCOMM1 to FRO12M */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM2);                 /*!< Switch FLEXCOMM2 to FRO12M */
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM3);                 /*!< Switch FLEXCOMM3 to FRO12M */
     CLOCK_AttachClk(kFRO12M_to_FLEXCOMM4);                 /*!< Switch FLEXCOMM4 to FRO12M */
+    CLOCK_AttachClk(kFRO12M_to_FLEXCOMM5);                 /*!< Switch FLEXCOMM5 to FRO12M */
 
     /*!< Set up dividers */
     CLOCK_SetClkDiv(kCLOCK_DivAhbClk, 1U);           /*!< Set AHBCLKDIV divider to value 1 */
@@ -385,8 +397,11 @@ void BOARD_BootClockPLL150M(void)
     CLOCK_SetClkDiv(kCLOCK_DivCtimer3Clk, 1U);           /*!< Set CTIMER3CLKDIV divider to value 1 */
     CLOCK_SetClkDiv(kCLOCK_DivCtimer4Clk, 1U);           /*!< Set CTIMER4CLKDIV divider to value 1 */
     CLOCK_SetClkDiv(kCLOCK_DivFlexcom0Clk, 1U);           /*!< Set FLEXCOMM0CLKDIV divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivFlexcom1Clk, 1U);           /*!< Set FLEXCOMM1CLKDIV divider to value 1 */
     CLOCK_SetClkDiv(kCLOCK_DivFlexcom2Clk, 1U);           /*!< Set FLEXCOMM2CLKDIV divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivFlexcom3Clk, 1U);           /*!< Set FLEXCOMM3CLKDIV divider to value 1 */
     CLOCK_SetClkDiv(kCLOCK_DivFlexcom4Clk, 1U);           /*!< Set FLEXCOMM4CLKDIV divider to value 1 */
+    CLOCK_SetClkDiv(kCLOCK_DivFlexcom5Clk, 1U);           /*!< Set FLEXCOMM5CLKDIV divider to value 1 */
 
     /* Set SystemCoreClock variable */
     SystemCoreClock = BOARD_BOOTCLOCKPLL150M_CORE_CLOCK;

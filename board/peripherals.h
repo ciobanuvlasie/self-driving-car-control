@@ -17,6 +17,7 @@
 #include "fsl_gpio.h"
 #include "fsl_lpi2c.h"
 #include "fsl_lpi2c_edma.h"
+#include "fsl_lpuart.h"
 
 #if defined(__cplusplus)
 extern "C" {
@@ -29,11 +30,11 @@ extern "C" {
 /* Used DMA device. */
 #define DMA0_DMA_BASEADDR (EDMA_Type *)DMA0
 /* NVIC interrupt vector ID (number). */
-#define INT_0_IRQN LP_FLEXCOMM2_IRQn
+#define INT_0_IRQN LP_FLEXCOMM3_IRQn
 /* NVIC interrupt vector priority. */
 #define INT_0_IRQ_PRIORITY 3
 /* NVIC interrupt handler identifier. */
-#define INT_0_IRQHANDLER LP_FLEXCOMM2_IRQHandler
+#define INT_0_IRQHANDLER LP_FLEXCOMM3_IRQHandler
 /* NVIC interrupt vector ID (number). */
 #define INT_1_IRQN EDMA_0_CH0_IRQn
 /* NVIC interrupt vector priority. */
@@ -90,27 +91,27 @@ extern "C" {
 #define CTIMER2_PWM_3_CHANNEL kCTIMER_Match_2
 /* Definition of channel 2 duty */
 #define CTIMER2_PWM_3_DUTY 23387
-/* BOARD_InitPeripherals defines for LP_FLEXCOMM2 */
+/* BOARD_InitPeripherals defines for LP_FLEXCOMM3 */
 /* Definition of peripheral ID */
-#define LP_FLEXCOMM2_PERIPHERAL LPI2C2
+#define LP_FLEXCOMM3_PERIPHERAL LPI2C3
 /* Definition of peripheral base address */
-#define LP_FLEXCOMM2_PERIPHERAL_BASE LPI2C2_BASE
+#define LP_FLEXCOMM3_PERIPHERAL_BASE LPI2C3_BASE
 /* Definition of the clock source frequency */
-#define LP_FLEXCOMM2_CLOCK_SOURCE 12000000UL
-/* LP_FLEXCOMM2 eDMA source request. */
-#define LP_FLEXCOMM2_RX_DMA_REQUEST kDma0RequestMuxLpFlexcomm2Rx
+#define LP_FLEXCOMM3_CLOCK_SOURCE 12000000UL
+/* LP_FLEXCOMM3 eDMA source request. */
+#define LP_FLEXCOMM3_RX_DMA_REQUEST kDma0RequestMuxLpFlexcomm3Rx
 /* Selected eDMA channel number. */
-#define LP_FLEXCOMM2_RX_DMA_CHANNEL 0
+#define LP_FLEXCOMM3_RX_DMA_CHANNEL 0
 /* Used DMA device. */
-#define LP_FLEXCOMM2_RX_DMA_BASEADDR DMA0
-/* LP_FLEXCOMM2 eDMA source request. */
-#define LP_FLEXCOMM2_TX_DMA_REQUEST kDma0RequestMuxLpFlexcomm2Tx
+#define LP_FLEXCOMM3_RX_DMA_BASEADDR DMA0
+/* LP_FLEXCOMM3 eDMA source request. */
+#define LP_FLEXCOMM3_TX_DMA_REQUEST kDma0RequestMuxLpFlexcomm3Tx
 /* Selected eDMA channel number. */
-#define LP_FLEXCOMM2_TX_DMA_CHANNEL 1
+#define LP_FLEXCOMM3_TX_DMA_CHANNEL 1
 /* Used DMA device. */
-#define LP_FLEXCOMM2_TX_DMA_BASEADDR DMA0
+#define LP_FLEXCOMM3_TX_DMA_BASEADDR DMA0
 /* Leader transfer buffer size */
-#define LP_FLEXCOMM2_MASTER_BUFFER_SIZE 10
+#define LP_FLEXCOMM3_MASTER_BUFFER_SIZE 10
 /* Definition of peripheral ID */
 #define CTIMER4_PERIPHERAL CTIMER4
 /* Timer tick frequency in Hz (input frequency of the timer) */
@@ -121,6 +122,10 @@ extern "C" {
 #define CTIMER4_PWM_PERIOD_CH kCTIMER_Match_0
 /* Definition of PWM period */
 #define CTIMER4_PWM_PERIOD 1170
+/* Definition of peripheral ID */
+#define LP_FLEXCOMM5_PERIPHERAL ((LPUART_Type *) LP_FLEXCOMM5)
+/* Definition of the clock source frequency */
+#define LP_FLEXCOMM5_CLOCK_SOURCE 12000000UL
 
 /***********************************************************************************************************************
  * Global variables
@@ -128,13 +133,14 @@ extern "C" {
 extern edma_config_t DMA0_config;
 extern const ctimer_config_t CTIMER0_config;
 extern const ctimer_config_t CTIMER2_config;
-extern const lpi2c_master_config_t LP_FLEXCOMM2_masterConfig;
-extern edma_handle_t LP_FLEXCOMM2_RX_Handle;
-extern edma_handle_t LP_FLEXCOMM2_TX_Handle;
-extern lpi2c_master_edma_handle_t LP_FLEXCOMM2_master_handle;
-extern uint8_t LP_FLEXCOMM2_master_buffer[LP_FLEXCOMM2_MASTER_BUFFER_SIZE];
-extern lpi2c_master_transfer_t LP_FLEXCOMM2_masterTransfer;
+extern const lpi2c_master_config_t LP_FLEXCOMM3_masterConfig;
+extern edma_handle_t LP_FLEXCOMM3_RX_Handle;
+extern edma_handle_t LP_FLEXCOMM3_TX_Handle;
+extern lpi2c_master_edma_handle_t LP_FLEXCOMM3_master_handle;
+extern uint8_t LP_FLEXCOMM3_master_buffer[LP_FLEXCOMM3_MASTER_BUFFER_SIZE];
+extern lpi2c_master_transfer_t LP_FLEXCOMM3_masterTransfer;
 extern const ctimer_config_t CTIMER4_config;
+extern const lpuart_config_t LP_FLEXCOMM5_config;
 
 /***********************************************************************************************************************
  * Initialization functions
