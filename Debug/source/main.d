@@ -117,8 +117,7 @@ source/main.o source/main.d: ../source/main.c \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\include/Config.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\include/servo.h \
  C:\Users\Vlasie\Desktop\nxp\nxpcup\include/esc.h \
- C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_reset.h \
- C:\Users\Vlasie\Desktop\nxp\nxpcup\include/oled.h
+ C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_reset.h
 C:\Users\Vlasie\Desktop\nxp\nxpcup\source\mcux_config.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\device/fsl_device_registers.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\device/MCXN947_cm33_core0.h:
@@ -238,4 +237,3 @@ C:\Users\Vlasie\Desktop\nxp\nxpcup\include/Config.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\include/servo.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\include/esc.h:
 C:\Users\Vlasie\Desktop\nxp\nxpcup\drivers/fsl_reset.h:
-C:\Users\Vlasie\Desktop\nxp\nxpcup\include/oled.h:

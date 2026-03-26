@@ -159,7 +159,7 @@ int main(void)
 
         //Steer(0);
 
-        //(int)i2c_ping(LPI2C2, 0x58));
+        (int)i2c_ping(LPI2C2, 0x58);
         HbridgeSpeed(&g_hbridge, 50 , -50);
         TestServo();
 
